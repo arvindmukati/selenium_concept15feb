@@ -1,3 +1,4 @@
+import dataclasses
 import time
 
 from selenium import webdriver
@@ -25,6 +26,13 @@ select_year.select_by_value("2022")
 select_month= Select(driver.find_element(By.XPATH,"//select[@class='ui-datepicker-month']"))
 select_month.select_by_value("3")
 driver.find_element(By.LINK_TEXT,"14").click()
+
+# Approach 2
+# driver.execute_script("document.querySelector('#bill-date-long').value='11/09/2001'")
+
+# ele1 =driver.find_element(By.XPATH,"//input[@name='DOB']")
+# driver.execute_script("arguments[0].value='11/09/2000'",ele1)
+
 driver.find_element(By.XPATH,"//input[@type='button']").click()
 
 time.sleep(3)
